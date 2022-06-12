@@ -1,0 +1,40 @@
+header{
+    background-color: #282c34;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header div img{
+    height: 100px;
+    padding: 10px;
+}
+
+a{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px;
+    margin-right: 10px;
+    color:#999999;
+}
+
+a:hover{
+    background-color: #61dafb;
+    color: #282c34;
+    border-radius: 20px;
+}
+
+section{
+    display: flex;
+    justify-content: space-evenly
+}
+
+img{
+    height: 300px;
+}
+
+h1{
+    font-family: inherit;
+    color: #282c34;
+}
