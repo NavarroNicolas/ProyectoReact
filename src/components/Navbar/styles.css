@@ -38,3 +38,16 @@ h1{
     font-family: inherit;
     color: #282c34;
 }
+
+p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:darkgoldenrod;
+    padding: 10px;
+    font-size: larger;
+}
+
+p img{
+    height: 3rem;
+}

@@ -3,6 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import ItemCount from '../ItemCount/ItemCount';
 
 function MediaCard( props ) {
   return (
@@ -20,6 +21,9 @@ function MediaCard( props ) {
           {props.desc}
         </Typography>
       </CardContent>
+
+      <ItemCount/>
+      
     </Card>
   );
 }
