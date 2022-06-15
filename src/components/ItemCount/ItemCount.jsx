@@ -1,23 +1,29 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./itemCount.css"
 
 
-const ItemCount = () =>{
-    return(
-       <div>
-        <div>
-            <h2 className='my-4'> 0 </h2>
-            <Button variant="danger" className='mx-3 px-4'>-</Button>{" "}
-            <Button variant="warning" className='mx-3 px-4'>+</Button>{" "}
-        </div>
-        <div>
-            <Button variant="secondary" className='my-3 px-4'>Add to cart</Button>{" "}
-        </div>
+const ItemCount = () => {
+  let stock = 5;
 
-       </div>
-    )
-}
+  const [number, setNumber] = React.useState(0);
+  
+  const suma = () => number < stock && setNumber(number + 1);
+  const resta = () => number > 0 && setNumber(number - 1);
+  const add = () => number>0 ? alert("Agregado al carrito") : alert("Debes agregar al menos 1 unidad")
 
-export default ItemCount
+  return (
+    <div className="Count">
+      <div>
+        <h2> Cantidad: {number} </h2>
+        <button onClick={resta}> - </button>
+        <button onClick={suma}> + </button>
+      </div>
+      <div>
+        <button onClick={add}> Add to cart </button>
+        
+      </div>
+    </div>
+  );
+};
 
+export default ItemCount;
