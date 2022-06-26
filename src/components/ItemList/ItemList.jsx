@@ -23,7 +23,7 @@ function ItemList( {data} ) {
           {data.id}
         </Typography> */}
       </CardContent>
-      <Button className='buyButton' variant="contained" >Comprar</Button>
+      <Button className='buyButton' variant="contained" >Ver mas</Button>
     </Card>
     </div>
   );
