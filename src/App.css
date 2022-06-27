@@ -1,15 +1,30 @@
-
-/* Lo que me exporto de ItemListContainer.js */
-.contenedor{
+.itemList{
   display: flex;
-  margin: 50px;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
-.itemList{
-  width: 400px;
-  padding: 20px;
+.item{
+  text-align: center;
+  margin: 0 100px;
+}
+
+.itemDetail{
+  text-align: center;
+}
+
+.itemDetail h2{
+  background-color: #282c34;
+  color: darkgray;
+  padding: 10px;
+}
+
+.itemDetail button{
+  font-family: revert;
+  font-size: large;
+  background-color: #282c34;
+  color: darkgray;
+  padding: 10px 30px;
 }
 
 @media (max-width:1000px){

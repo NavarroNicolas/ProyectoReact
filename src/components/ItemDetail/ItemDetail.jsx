@@ -3,10 +3,10 @@ import React from "react";
 
 const ItemDetail = ({ details }) => {
   return (
-    <div>
+    <div className="itemDetail">
       <h1>{details.name}</h1>
       <img src={details.img} alt={details} />
-      <h5>Precio:{details.price}</h5>
+      <h2>Precio: ${details.price}</h2>
       <p>{details.desc}</p>
       <button>Comprar</button>
     </div>
