@@ -7,6 +7,7 @@ import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer
 
 import "./App.css";
 
+
 function App() {
 	return (
 		<BrowserRouter>

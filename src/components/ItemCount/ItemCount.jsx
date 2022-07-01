@@ -1,5 +1,6 @@
 import React from 'react'
 import "./itemCount.css"
+import {Link} from 'react-router-dom'
 
 
 const ItemCount = () => {
@@ -9,10 +10,16 @@ const ItemCount = () => {
   
   const suma = () => number < stock && setNumber(number + 1);
   const resta = () => number > 0 && setNumber(number - 1);
-  const add = () => number>0 ? alert("Agregado al carrito") : alert("Debes agregar al menos 1 unidad")
-
+  const add = () => {
+    if(number>0){
+      <Link to="../Cart/Cart">Redirect</Link>;
+      alert("Agregado al carrito") 
+    }else{ 
+    alert("Debes agregar al menos 1 unidad")
+      }
+  }
   return (
-    <div className="Count">
+   <div className="Count">
       <div>
         <h2> Cantidad: {number} </h2>
         <button onClick={resta}> - </button>
@@ -20,10 +27,22 @@ const ItemCount = () => {
       </div>
       <div>
         <button onClick={add}> Add to cart </button>
-        
       </div>
     </div>
   );
 };
 
 export default ItemCount;
+
+
+
+/* {<div className="Count">
+<div>
+  <h2> Cantidad: {number} </h2>
+  <button onClick={resta}> - </button>
+  <button onClick={suma}> + </button>
+</div>
+<div>
+  <button onClick={add}> Add to cart </button>
+</div>
+</div>} */
