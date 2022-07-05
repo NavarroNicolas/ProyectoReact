@@ -1,48 +1,23 @@
-import React from 'react'
+import React, {useContext} from 'react'
+
+//context
+import {ItemsContext} from '../../context/ItemContext';
+
+//css
 import "./itemCount.css"
-import {Link} from 'react-router-dom'
 
 
 const ItemCount = () => {
-  let stock = 5;
 
-  const [number, setNumber] = React.useState(0);
-  
-  const suma = () => number < stock && setNumber(number + 1);
-  const resta = () => number > 0 && setNumber(number - 1);
-  const add = () => {
-    if(number>0){
-      <Link to="../Cart/Cart">Redirect</Link>;
-      alert("Agregado al carrito") 
-    }else{ 
-    alert("Debes agregar al menos 1 unidad")
-      }
-  }
+ const { counts, Sumar, Restar } = useContext(ItemsContext); 
+
   return (
    <div className="Count">
-      <div>
-        <h2> Cantidad: {number} </h2>
-        <button onClick={resta}> - </button>
-        <button onClick={suma}> + </button>
-      </div>
-      <div>
-        <button onClick={add}> Add to cart </button>
-      </div>
+        <h2>Cantidad: {counts} </h2> 
+        <button onClick={Restar}> - </button>
+        <button onClick={Sumar}> + </button>
     </div>
   );
 };
 
 export default ItemCount;
-
-
-
-/* {<div className="Count">
-<div>
-  <h2> Cantidad: {number} </h2>
-  <button onClick={resta}> - </button>
-  <button onClick={suma}> + </button>
-</div>
-<div>
-  <button onClick={add}> Add to cart </button>
-</div>
-</div>} */

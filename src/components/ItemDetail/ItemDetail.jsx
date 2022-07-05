@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
+import { ItemsContext } from "../../context/ItemContext";
 import ItemCount from "../ItemCount/ItemCount";
 
 
 const ItemDetail = ({ details }) => {
-
+  const { AddToCart, ClearCart } = useContext(ItemsContext);
 
   return (
     <div className="itemDetail">
@@ -11,10 +12,9 @@ const ItemDetail = ({ details }) => {
       <img src={details.img} alt={details} />
       <h2>Precio: ${details.price}</h2>
       <p>{details.desc}</p>
-
-      
-      <ItemCount/>
-
+      <ItemCount />
+      <button onClick={AddToCart}>Agregar al carrito </button>
+      <button onClick={ClearCart}>Vaciar carrito </button>
     </div>
   );
 };

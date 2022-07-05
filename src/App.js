@@ -1,15 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+//componentes
 import NavBar from "./components/Navbar/NavBar";
-//import Title from "./components/Title/Title";
 import ItemListContainer from "./pages/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer";
+
+//context
+import ItemsProvider from "./context/ItemContext";
 
 import "./App.css";
 
 
 function App() {
 	return (
+		<ItemsProvider>
 		<BrowserRouter>
 			<NavBar />
 			<Routes>
@@ -18,7 +22,9 @@ function App() {
 				<Route path="/detail/:id" element={<ItemDetailContainer />} />
 			</Routes>
 		</BrowserRouter>
+		</ItemsProvider>
 	);
 }
 
 export default App;
+	
