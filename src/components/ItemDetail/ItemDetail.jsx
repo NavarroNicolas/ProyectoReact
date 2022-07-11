@@ -1,10 +1,14 @@
 import React, {useContext} from "react";
+
 import { ItemsContext } from "../../context/ItemContext";
+
+import { Button } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 const ItemDetail = ({ details }) => {
-  const { AddToCart, ClearCart } = useContext(ItemsContext);
+  const { AddToCart} = useContext(ItemsContext);
 
   return (
     <div className="itemDetail">
@@ -13,8 +17,7 @@ const ItemDetail = ({ details }) => {
       <h2>Precio: ${details.price}</h2>
       <p>{details.desc}</p>
       <ItemCount />
-      <button onClick={AddToCart}>Agregar al carrito </button>
-      <button onClick={ClearCart}>Vaciar carrito </button>
+      <Button variant="contained" sx={{ m: 1 }} startIcon={<ShoppingCartIcon/>} onClick={AddToCart}>Add To Cart </Button>
     </div>
   );
 };

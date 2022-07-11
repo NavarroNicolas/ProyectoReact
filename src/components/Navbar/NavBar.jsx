@@ -19,8 +19,8 @@ class NavBar extends Component {
           <Link to="/cold">Cold</Link>
         </nav>
 
-        <div>
-          <CartWidget />
+        <div className='btn-cart'>
+          <Link to="/Cart"> <CartWidget /> </Link>
         </div>
       </header>
     );

@@ -19,7 +19,7 @@ a{
     color:#999999;
 }
 
-a:hover{
+.NavBar a:hover{
     background-color: #61dafb;
     color: #282c34;
     border-radius: 20px;

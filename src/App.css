@@ -13,19 +13,19 @@
   text-align: center;
 }
 
-.itemDetail h2{
+/* .itemDetail h2{
   background-color: #282c34;
   color: darkgray;
   padding: 10px;
-}
+} */
 
-.itemDetail button{
+/* .itemDetail button{
   font-family: revert;
   font-size: large;
   background-color: #282c34;
   color: darkgray;
   padding: 10px 30px;
-}
+} */
 
 @media (max-width:1000px){
   .contenedor{

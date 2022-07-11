@@ -6,6 +6,7 @@ const ItemsProvider = ({ children }) => {
 
   const [cart, setCart] = useState([]);
   const [counts, setCounts] = useState(0);
+  const [numberCart, setNumberCart] = useState(0);
 
   const Sumar = () => {
     const value = counts + 1;
@@ -43,6 +44,8 @@ const ItemsProvider = ({ children }) => {
     value={{
       cart,
       counts,
+      numberCart,
+      setNumberCart,
       setCounts,
       Sumar,
       Restar,

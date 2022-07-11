@@ -5,6 +5,7 @@ import {ItemsContext} from '../../context/ItemContext';
 
 //css
 import "./itemCount.css"
+import { Button } from '@mui/material';
 
 
 const ItemCount = () => {
@@ -14,8 +15,8 @@ const ItemCount = () => {
   return (
    <div className="Count">
         <h2>Cantidad: {counts} </h2> 
-        <button onClick={Restar}> - </button>
-        <button onClick={Sumar}> + </button>
+        <Button variant="outlined" sx={{ m: 1 }} onClick={Restar}> - </Button>
+        <Button variant="outlined" sx={{ m: 1 }} onClick={Sumar}> + </Button>
     </div>
   );
 };
