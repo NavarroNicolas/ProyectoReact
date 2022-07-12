@@ -15,16 +15,18 @@ const Cart = () => {
 
   const { cart, ClearCart } = useContext(ItemsContext);
 
+  /* console.log(cart) */
+
   return (
     <Container>
 
       <Container className='itemsCarrito' sx={{m:4}}>
-        {cart.length>1? {cart} : <Typography variant="h5" color="gray">No tenes productos agregados...</Typography>}
+        {cart.length>=1 ? cart.map((e)=>{ return <Typography variant="h5" color="gray">{e.amount}, {e.name}, ${e.price}</Typography>}) : <Typography variant="h5" color="gray">No tenes productos agregados...</Typography>}
       </Container>
 
-      {cart.length>1 && <h2>Precio Total: $ </h2>}
+      {cart.length>=1 && <h2>Precio Total: $ </h2>}
 
-      {cart.length>1 && <Button variant="contained" color="success" sx={{ m: 2 }}>
+      {cart.length>=1 && <Button variant="contained" color="success" sx={{ m: 2 }}>
         Finalizar la compra
       </Button>}
 

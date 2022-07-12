@@ -7,11 +7,11 @@ import CartIcon from '@mui/icons-material/AddShoppingCart';
 
 const CartWidget = () => {
 
-  const {numberCart} = useContext(ItemsContext)
+  const {cart} = useContext(ItemsContext)
 
   return (
     <div>
-        <Button><CartIcon color="primary"  sx={{ fontSize: 40 }}></CartIcon> {numberCart} </Button>
+        <Button><CartIcon color="primary"  sx={{ fontSize: 40 }}></CartIcon> {cart.length} </Button>
     </div>
   )
 }

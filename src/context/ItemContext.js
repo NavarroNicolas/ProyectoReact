@@ -6,7 +6,6 @@ const ItemsProvider = ({ children }) => {
 
   const [cart, setCart] = useState([]);
   const [counts, setCounts] = useState(0);
-  const [numberCart, setNumberCart] = useState(0);
 
   const Sumar = () => {
     const value = counts + 1;
@@ -20,13 +19,26 @@ const ItemsProvider = ({ children }) => {
   };
 
 
-  const AddToCart = () => {
+/*   const AddToCart = () => {
     if (counts > 0) {
       console.log("Producto agregado");
       setCounts(0);
     } else {
       console.log("No hay nada");
     }
+  }; */
+
+  const AddToCart = (elemento) => {
+    if (!InCart(elemento.id)) {
+      setCart([...cart, elemento]); 
+      cart.forEach((producto, indice) => {
+        if (producto.id === elemento.id) {
+          cart[indice].amount = producto.amount + elemento.amount;
+          setCart([...cart]);
+        }
+      });
+    }
+    setCounts(0);
   };
 
   const ClearCart = () => {
@@ -44,8 +56,6 @@ const ItemsProvider = ({ children }) => {
     value={{
       cart,
       counts,
-      numberCart,
-      setNumberCart,
       setCounts,
       Sumar,
       Restar,
