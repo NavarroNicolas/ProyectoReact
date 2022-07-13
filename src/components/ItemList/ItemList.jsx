@@ -11,7 +11,7 @@ const ItemList = ({ article }) => {
     setArticulos(category
       ? article.filter((art) => art.category === category)
       : article)
-  ), [category]);
+  ), [category, article]);
 
   return (
     <div className='itemList'>
