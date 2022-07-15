@@ -1,11 +1,11 @@
 import React, {useContext} from "react";
 
 import { ItemsContext } from "../../context/ItemContext";
+//import { db } from "../../firebase/firebaseConfig";
 
 import { Button } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
 
 const ItemDetail = ({ details }) => {
   const { AddToCart, counts} = useContext(ItemsContext);
@@ -16,11 +16,9 @@ const ItemDetail = ({ details }) => {
       console.log("Seleccione al menos 1 unidad")
      }else{
     AddToCart(producto); 
-    console.log(producto);
     console.log("Producto agregado al carrito con éxito");
      }
   };
-
   return (
     <div className="itemDetail">
       <h1>{details.name}</h1>

@@ -26,11 +26,11 @@ const Cart = () => {
 
       {cart.length>=1 && <h2>Precio Total: $ </h2>}
 
-      {cart.length>=1 && <Button variant="contained" color="success" sx={{ m: 2 }}>
+      {cart.length>=1 && <Link to={"/chekout"}><Button variant="contained" color="success" sx={{ m: 2 }}>
         Finalizar la compra
-      </Button>}
+      </Button></Link>}
 
-      {cart.length>1 && <Button variant="outlined" color="error" sx={{ m: 2 }} startIcon={<DeleteIcon />}
+      {cart.length>=1 &&  <Button variant="outlined" color="error" sx={{ m: 2 }} startIcon={<DeleteIcon />}
         onClick={ClearCart}>
         Vaciar Carrito
       </Button>}

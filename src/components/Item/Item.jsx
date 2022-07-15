@@ -23,7 +23,7 @@ function Item({ data }) {
             {data.name}
           </Typography>
         </CardContent>
-        <Link to={`/detail/${data.id}`} className='buyButton'><Button variant="contained" >Ver mas</Button></Link>
+         <Link to={`/detail/${data.id}`} className='buyButton'><Button variant="contained" >Ver mas</Button></Link> 
       </Card>
     </div>
   );
