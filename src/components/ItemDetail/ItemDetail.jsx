@@ -6,6 +6,7 @@ import { ItemsContext } from "../../context/ItemContext";
 import { Button } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ details }) => {
   const { AddToCart, counts} = useContext(ItemsContext);
@@ -26,7 +27,8 @@ const ItemDetail = ({ details }) => {
       <h2>Precio: ${details.price}</h2>
       <p>{details.desc}</p>
       <ItemCount />
-      <Button variant="contained" sx={{ m: 1 }} startIcon={<ShoppingCartIcon/>} onClick={agregarAlCarro}>Add To Cart </Button>
+      <Button variant="contained"  startIcon={<ShoppingCartIcon/>} onClick={agregarAlCarro}>Add To Cart </Button>
+      <Link to="/"> <Button variant="contained" color="secondary" >Volver a productos </Button> </Link>
     </div>
   );
 };
