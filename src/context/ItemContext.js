@@ -18,16 +18,6 @@ const ItemsProvider = ({ children }) => {
     }
   };
 
-
-/*   const AddToCart = () => {
-    if (counts > 0) {
-      console.log("Producto agregado");
-      setCounts(0);
-    } else {
-      console.log("No hay nada");
-    }
-  }; */
-
   const AddToCart = (elemento) => {
     if (!InCart(elemento.id)) {
       setCart([...cart, elemento]); 

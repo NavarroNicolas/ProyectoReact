@@ -1,0 +1,19 @@
+.buyBtn {
+    width: auto;
+    height: auto;
+    padding: 15px 55px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: black;
+    background-color: #61ddffef;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.buyBtn:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
