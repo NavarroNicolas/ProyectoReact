@@ -10,7 +10,7 @@ import { Button } from '@mui/material';
 
 const ItemCount = () => {
 
- const { counts, Sumar, Restar } = useContext(ItemsContext); 
+   const { counts, Sumar, Restar } = useContext(ItemsContext); 
 
   return (
    <div className="Count">

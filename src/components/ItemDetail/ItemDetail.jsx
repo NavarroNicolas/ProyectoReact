@@ -6,13 +6,13 @@ import { ItemsContext } from "../../context/ItemContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({ details }) => {
-  const { AddToCart, counts} = useContext(ItemsContext);
+  const { AddToCart, counts } = useContext(ItemsContext);
 
 const toastError = () =>{
   toast.error("Seleccione al menos una unidad", {
@@ -53,11 +53,14 @@ const toastOk = () =>{
     <div className="itemDetail">
       <h1>{details.name}</h1>
       <img src={details.img} alt={details} />
+
+      <Typography variant="h5" color="gray" mt={2}> En stock: {details.stock}</Typography>
+      
       <h2>Precio: ${details.price}</h2>
       <p>{details.desc}</p>
       <ItemCount />
       <Button variant="contained"  startIcon={<ShoppingCartIcon/>} onClick={agregarAlCarro}>Add To Cart </Button>
-      <Link to="/"> <Button variant="contained" color="secondary" >Volver a productos </Button> </Link>
+      <Link to="/"> <Button variant="contained" color="secondary">Volver a productos </Button> </Link>
       <ToastContainer/>
     </div>
   );

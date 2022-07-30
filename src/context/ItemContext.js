@@ -31,16 +31,16 @@ const ItemsProvider = ({ children }) => {
     setCounts(0);
   };
 
-  const ClearCart = () => {
-    setCart([]);
-    setCounts(0);
-  };
-
+  
   const InCart = (id) => {
     const esIgual = cart.find((product) => product.id === id);
     return esIgual === undefined ? false : true;
   };
-
+  
+  const ClearCart = () => {
+    setCart([]);
+    setCounts(0);
+  };
 
   return (<ItemsContext.Provider
     value={{
