@@ -9,19 +9,21 @@ import { ItemsContext } from "../../context/ItemContext";
 import { Button, Container } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Divider from "@mui/material/Divider";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 //card UI
 import Stack from "@mui/material/Stack";
-import Card from "@mui/material/Card";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 
 const Cart = () => {
-  const { cart, ClearCart } = useContext(ItemsContext);
+  const { cart, ClearCart, removeCart } = useContext(ItemsContext);
 
   const precioTotal = cart
-    .map((item) => item.price)
+    .map((item) => item.price * item.amount)
     .reduce((prev, curr) => prev + curr, 0);
+
+  
 
   return (
     <Container>
@@ -29,7 +31,7 @@ const Cart = () => {
         {cart.length >= 1 ? (
           cart.map((e) => {
             return(
-              <Box sx={{ p:1, display: "flex"}}>
+              <Box sx={{ p:1, display: "flex"}} key={e.id}>
                 <Avatar variant="rounded" src={e.img} />
                 <Stack spacing={1}>
                   <Typography variant="h5" component="div">
@@ -42,7 +44,15 @@ const Cart = () => {
                   >
                     $ {e.price}
                   </Typography>
+                  <Typography
+                    sx={{ fontSize: 18 }}
+                    color="text.secondary"
+                    gutterBottom
+                  >
+                    Cantidad {e.amount}
+                  </Typography>
                   </Stack>
+                  <Button variant="text"  startIcon={<DeleteForeverIcon/>} onClick={()=>removeCart(e.id)}></Button>
               </Box>
             )
           })): (

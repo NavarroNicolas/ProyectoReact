@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 
 import { ItemsContext } from "../../context/ItemContext";
 //import { db } from "../../firebase/firebaseConfig";
@@ -11,12 +11,12 @@ import ItemCount from "../ItemCount/ItemCount";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from "react-router-dom";
 
-const ItemDetail = ({ details }) => {
-  const { AddToCart, counts } = useContext(ItemsContext);
+const ItemDetail = ({ product , id}) => {
+  const { AddToCart, counts, addTotalCart, setCounts } = useContext(ItemsContext);
 
 const toastError = () =>{
   toast.error("Seleccione al menos una unidad", {
-    position: "top-right",
+    position: "bottom-right",
     autoClose:2500,
     hideProgressBar: false,
     closeOnClick: true,
@@ -27,7 +27,7 @@ const toastError = () =>{
 }
 const toastOk = () =>{
   toast.success("Producto agregado al carrito", {
-    position: "top-right",
+    position: "bottom-right",
     autoClose:2500,
     hideProgressBar: false,
     closeOnClick: true,
@@ -38,29 +38,37 @@ const toastOk = () =>{
 }
 
   const agregarAlCarro = () => {
-     const producto = { ...details, amount: counts };
+     const producto = { ...product, amount: counts };
      if(counts === 0){
       console.log("Seleccione al menos 1 unidad");
       toastError();
     }else{
+      addTotalCart();
       AddToCart(producto); 
       console.log("Producto agregado al carrito con éxito");
       toastOk();
     }
      
   };
+
+  useEffect(() => {
+    return () => {
+      setCounts(0)
+    }
+  }, [setCounts])
+  
   return (
     <div className="itemDetail">
-      <h1>{details.name}</h1>
-      <img src={details.img} alt={details} />
+      <h1>{product.name}</h1>
+      <img src={product.img} alt={product} />
 
-      <Typography variant="h5" color="gray" mt={2}> En stock: {details.stock}</Typography>
+      <Typography variant="h5" color="gray" mt={2}> En stock: {product.stock}</Typography>
       
-      <h2>Precio: ${details.price}</h2>
-      <p>{details.desc}</p>
-      <ItemCount />
+      <h2>Precio: ${product.price}</h2>
+      <p>{product.desc}</p>
+      <ItemCount maxStock={product.stock} />
+      <Link to="/"> <Button variant="outlined" color="secondary">Volver a productos </Button> </Link>
       <Button variant="contained"  startIcon={<ShoppingCartIcon/>} onClick={agregarAlCarro}>Add To Cart </Button>
-      <Link to="/"> <Button variant="contained" color="secondary">Volver a productos </Button> </Link>
       <ToastContainer/>
     </div>
   );

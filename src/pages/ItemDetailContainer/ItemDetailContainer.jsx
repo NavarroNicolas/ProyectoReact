@@ -35,8 +35,7 @@ const ItemDetailContainer = () => {
     <div className="itemDetailContainer">
       {
         details !== undefined
-          ? details.map((data)=>{
-            return <ItemDetail key={data.id} details={data} /> }) 
+          ? details.map((data)=><ItemDetail key={data.id} product={data} /> ) 
           : <LinearProgress className="spiner" />
       }
 

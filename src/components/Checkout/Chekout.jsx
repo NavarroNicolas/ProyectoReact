@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc} from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 
 import TextField from "@mui/material/TextField";
 import BuyEnd from "../BuyEnd/BuyEnd";
 import { Container } from "@mui/system";
 import "./Chekout.css"
+import { ItemsContext } from "../../context/ItemContext";
 
 const initialState = {
   nombre: "",
@@ -16,6 +17,8 @@ const initialState = {
 };
 
 const Chekout = () => {
+  const {ClearCart} = useContext(ItemsContext)
+
   const [values, setValues] = useState(initialState);
 
   const [compraID, setCompraID] = useState("");
@@ -28,12 +31,13 @@ const Chekout = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(values);
-    const docRef = await addDoc(collection(db, "compras"), {
-      values,
-    });
+     const docRef = await addDoc(collection(db, "compras"), {
+       values,
+     });
     console.log("Document written with ID: ", docRef.id);
     setCompraID(docRef.id);
     setValues(initialState);
+    ClearCart()
   };
 
   return (
