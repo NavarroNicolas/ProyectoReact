@@ -1,55 +1,24 @@
+*{
+  text-align: center;
+}
+
 .itemList{
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-around;
 }
 
-.item{
-  text-align: center;
-  margin: 0 100px;
+@media (max-width: 1000px) {
+  .itemList{
+    grid-template-columns: auto auto;
+  }
 }
-
-.itemDetail{
-  text-align: center;
-}
-
-/* .itemDetail h2{
-  background-color: #282c34;
-  color: darkgray;
-  padding: 10px;
-} */
-
-/* .itemDetail button{
-  font-family: revert;
-  font-size: large;
-  background-color: #282c34;
-  color: darkgray;
-  padding: 10px 30px;
-} */
-
-@media (max-width:1000px){
-  .contenedor{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 750px) {
+  .itemList{
+    grid-template-columns: auto;
   }
 }
 
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -64,13 +33,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

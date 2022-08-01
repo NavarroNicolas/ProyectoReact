@@ -1,8 +1,6 @@
 import React, {useContext, useEffect} from "react";
 
 import { ItemsContext } from "../../context/ItemContext";
-//import { db } from "../../firebase/firebaseConfig";
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

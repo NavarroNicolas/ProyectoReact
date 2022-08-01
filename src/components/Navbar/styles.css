@@ -5,6 +5,13 @@ header{
     align-items: center;
 }
 
+@media (max-width: 750px) {
+    header{
+      flex-direction: column;
+    }
+  }
+  
+
 header div img{
     height: 100px;
     padding: 10px;

@@ -27,11 +27,11 @@ const Cart = () => {
 
   return (
     <Container>
-      <Container className="itemsCarrito" sx={{ m: 4 }}>
+      <Container className="itemsCarrito" sx={{ m: 4 }} >
         {cart.length >= 1 ? (
           cart.map((e) => {
             return(
-              <Box sx={{ p:1, display: "flex"}} key={e.id}>
+              <Box className="perrroooo" sx={{ p:1, display: "flex", justifyContent: 'center'}} key={e.id}>
                 <Avatar variant="rounded" src={e.img} />
                 <Stack spacing={1}>
                   <Typography variant="h5" component="div">

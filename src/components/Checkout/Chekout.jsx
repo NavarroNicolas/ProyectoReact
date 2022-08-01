@@ -3,11 +3,12 @@ import React, { useContext, useState } from "react";
 import { collection, addDoc} from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 
+import { ItemsContext } from "../../context/ItemContext";
+
+import { Container } from "@mui/system";
 import TextField from "@mui/material/TextField";
 import BuyEnd from "../BuyEnd/BuyEnd";
-import { Container } from "@mui/system";
 import "./Chekout.css"
-import { ItemsContext } from "../../context/ItemContext";
 
 const initialState = {
   nombre: "",
@@ -93,7 +94,7 @@ const Chekout = () => {
           <button className="buyBtn">Confirmar Compra</button>
         </form>
         
-        {compraID && <BuyEnd compraID={compraID} />}
+        { compraID && <BuyEnd compraID={compraID}/> }
       </Container>
     </>
   );

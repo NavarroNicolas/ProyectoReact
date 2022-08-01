@@ -11,7 +11,10 @@ const CartWidget = () => {
 
   return (
     <div>
-        <Button><CartIcon color="primary"  sx={{ fontSize: 40 }}></CartIcon> {totalCart} </Button>
+        <Button>
+          <CartIcon color="primary"  sx={{ fontSize: 40 }}></CartIcon>
+           {totalCart} 
+        </Button>
     </div>
   )
 }

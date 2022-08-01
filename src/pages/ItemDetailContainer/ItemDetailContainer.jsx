@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import axios from "axios";
 
 //components
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
@@ -11,7 +10,6 @@ import { LinearProgress } from "@mui/material";
 import { db } from "../../firebase/firebaseConfig";
 import { collection, query, getDocs, documentId, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
-//import { Link } from "react-router-dom";
 
 const ItemDetailContainer = () => {
 
@@ -23,7 +21,6 @@ const ItemDetailContainer = () => {
     const docs = [];
 
     querySnapshot.forEach((doc) => {
-      /* console.log(doc.id ,'=>', doc.data()) */
       docs.push({ ...doc.data(), id: doc.id });
     });
     setDetails(docs);
@@ -44,16 +41,3 @@ const ItemDetailContainer = () => {
 };
 
 export default ItemDetailContainer;
-
-
-/*   const [details, setDetails] = useState();
-  const { id } = useParams();
-
-  useEffect(() => {
-    axios
-      .get(`https://62abbee0a62365888be059ff.mockapi.io/products/${id}`)
-      .then((detail) => {
-        setTimeout(() => setDetails(detail.data), 1000);
-      });
-  }, [id]);
- */
